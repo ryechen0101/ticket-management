@@ -1,7 +1,6 @@
 # Ticket Management System – Backend
 
-一個以 **Spring Boot** 開發的工單管理系統後端 API，  
-實作 JWT 認證、角色權限控管、工單流程狀態管理與歷史追蹤。
+一個以 **Spring Boot** 開發的工單管理系統後端 API，實作 JWT 認證、角色權限控管、工單流程狀態管理與歷史追蹤。
 
 此專案用於展示我在 **Java Web / Spring Boot / REST API / 系統設計** 方面的能力。
 
@@ -26,6 +25,19 @@
 - Docker（Cloud Run 部署）
 - RESTful API 設計
 
+## 資料庫設計（MySQL）
+本專案採用關聯式資料庫，主要資料表包含：
+- users（使用者）
+- tickets（工單）
+- ticket_comments（工單留言）
+- ticket_change_history（工單變更紀錄）
+
+
+設計重點：
+每筆工單皆隸屬於一位使用者（建立者／requester）
+留言與欄位變更紀錄獨立存放，以保留完整的操作與稽核歷程（audit trail）
+使用外鍵（Foreign Key）與級聯刪除（Cascade Delete）機制，確保資料一致性與完整性
+
 ## 認證與授權（JWT）
 
 - 登入成功後回傳 JWT
@@ -35,7 +47,7 @@
 - 後端透過 Spring Security Filter 驗證 token
 - Service 層再次進行業務權限檢查（避免越權）
 
-## 📝 工單功能設計
+## 工單功能設計
 
 ### 工單狀態流程
 
