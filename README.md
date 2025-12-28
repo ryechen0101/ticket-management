@@ -34,9 +34,9 @@
 
 
 設計重點：
-每筆工單皆隸屬於一位使用者（建立者／requester）
-留言與欄位變更紀錄獨立存放，以保留完整的操作與稽核歷程（audit trail）
-使用外鍵（Foreign Key）與級聯刪除（Cascade Delete）機制，確保資料一致性與完整性
+- 每筆工單皆隸屬於一位使用者（建立者／requester）
+- 留言與欄位變更紀錄獨立存放，以保留完整的操作與稽核歷程（audit trail）
+- 使用外鍵（Foreign Key）與級聯刪除（Cascade Delete）機制，確保資料一致性與完整性
 
 ## 認證與授權（JWT）
 
